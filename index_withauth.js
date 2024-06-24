@@ -41,7 +41,7 @@ app.use("/user", routes);
 app.post("/login", (req, res) => {
     const user = req.body.user;
     if (!user) {
-        return res.status(404).json({ message: "Body Empty" });
+        return res.status(404).json({ message: "Body Empty\n" });
     }
     // Generate JWT access token
     let accessToken = jwt.sign({
@@ -52,7 +52,7 @@ app.post("/login", (req, res) => {
     req.session.authorization = {
         accessToken
     }
-    return res.status(200).send("User successfully logged in");
+    return res.status(200).send("User successfully logged in\n");
 });
 
 // Start server
